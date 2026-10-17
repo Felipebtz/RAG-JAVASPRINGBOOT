@@ -21,3 +21,22 @@ CREATE TABLE tickets (
 
     triaged_at TIMESTAMPTZ
     )
+
+CREATE TABLE ticketsMessage (
+    id BIGSERIAL PRIMARY KEY,
+
+    ticked_id BIGINT NOT NULL,
+
+    body TEXT NOT NULL,
+
+    author_type VARCHAR(20) NOT NULL
+        CHECK (author_type IN ('CUSTOMER', 'AGENT', 'SYSTEM')),
+
+        created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+
+        CONSTRAINT fk_ticket_message_ticket
+         FOREIGN KEY (ticked_id)
+         REFERENCES tickets(id)
+         ON DELETE CASCADE
+ 
+)
