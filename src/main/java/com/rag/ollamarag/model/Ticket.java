@@ -32,17 +32,17 @@ public class Ticket {
     private Integer priority = 3;
     
     @Column (length = 100)
-    private String departament;
+    private String department;
 
     @Column (length = 30)
     private String sentiment;
     
     @JdbcTypeCode(SqlTypes.JSON)
     @Column (name = "ai_tags", columnDefinition = "jsonb", nullable = false)
-    private List<String> aiTagas = new ArrayList<>();
+    private List<String> aiTags = new ArrayList<>();
 
     @Column (columnDefinition = "TEXT")
-    private String sumarry;
+    private String summary;
 
     @Column (name="created_at", nullable = false)
     private Instant createdAt;
@@ -89,12 +89,12 @@ public class Ticket {
         this.priority = priority;
     }
 
-    public String getDepartament() {
-        return departament;
+    public String getdepartment() {
+        return department;
     }
 
-    public void setDepartament(String departament) {
-        this.departament = departament;
+    public void setdepartment(String department) {
+        this.department = department;
     }
 
     public String getSentiment() {
@@ -105,20 +105,20 @@ public class Ticket {
         this.sentiment = sentiment;
     }
 
-    public List<String> getAiTagas() {
-        return aiTagas;
+    public List<String> getaiTags() {
+        return aiTags;
     }
 
-    public void setAiTagas(List<String> aiTagas) {
-        this.aiTagas = aiTagas;
+    public void setaiTags(List<String> aiTags) {
+        this.aiTags = aiTags;
     }
 
-    public String getSumarry() {
-        return sumarry;
+    public String getsummary() {
+        return summary;
     }
 
-    public void setSumarry(String sumarry) {
-        this.sumarry = sumarry;
+    public void setsummary(String summary) {
+        this.summary = summary;
     }
 
     public Instant getCreatedAt() {
